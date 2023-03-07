@@ -23,6 +23,7 @@ const showCardDetails = (data) => {
     data.forEach(datum => {
         // console.log(datum);
         const { image, name, published_in, features, id } = datum;
+        // console.log(features);
         const div = document.createElement('div');
         div.innerHTML = `
             <div class="card w-full h-full bg-base-100 shadow-xl p-5">
@@ -30,9 +31,7 @@ const showCardDetails = (data) => {
                 <div class="card-body">
                     <h2 class="text-2xl font-semibold">Features</h2>
                     <ol class="list-decimal">
-                        <li>${features[0]}</li>
-                        <li>${features[1]}</li>
-                        <li>${features[2]}</li>
+                       ${features ? features.map((a) => `<li style="position: relative; left:15px">${a}</li>`).join('') : ''}
                     </ol>
                     <div class="my-6 border-2 border-gray-300"></div>
                     <div class="flex items-center justify-between">
@@ -80,8 +79,9 @@ const loadDetailsOnModal = async (id) => {
 };
 
 const showDetailsOnModal = (data) => {
-    // console.log(data);
     const { description, pricing, features, integrations, image_link, input_output_examples, accuracy } = data;
+    const featuresValuesArr = Object.values(features);
+    // console.log(featuresValuesArr);
     const modalDetails = document.getElementById('modal-details');
     modalDetails.innerHTML = `
     <label for="modal-card-details" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
@@ -98,17 +98,13 @@ const showDetailsOnModal = (data) => {
                                 <div>
                                     <h2 class="text-2xl font-semibold mb-4">Features</h2>
                                     <ul class="list-disc">
-                                        <li>${features['1'].feature_name}</li>
-                                        <li>${features['2'].feature_name}</li>
-                                        <li>${features['3'].feature_name}</li>
+                                         ${featuresValuesArr ? featuresValuesArr.map(a => `<li style="position: relative; left:15px">${a.feature_name}</li>`).join('') : ''}
                                     </ul>
                                 </div>
                                 <div>
                                     <h2 class="text-2xl font-semibold mb-4">Integrations</h2>
                                     <ul class="list-disc">
-                                        <li>${integrations ? (integrations[0] ? integrations[0] : 'No Data Found') : 'No Data Found'}</li>
-                                        <li>${integrations ? (integrations[1] ? integrations[1] : 'No Data Found') : 'No Data Found'}</li>
-                                        <li>${integrations ? (integrations[2] ? integrations[2] : 'No Data Found') : 'No Data Found'}</li>
+                                        ${integrations ? integrations.map(a => `<li style="position: relative; left:15px">${a}</li>`).join('') : 'No Data Found'}
                                     </ul>
                                 </div>
                             </div>
