@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Universe Hub</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="https://picsum.photos/200/300">
+    <!-- daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="py-12 bg-gray-100" onload="loadCardDetails(URL)">
+    <header class="flex flex-col justify-center items-center">
+        <!-- site title  -->
+        <h1 class="text-4xl font-bold underline decoration-double text-zinc-600">AI Universe Hub</h1>
+        <!-- sort button  -->
+        <button id="btn-sort" onclick="btnSort()" class="btn btn-error text-white text-lg font-medium mt-8">Sort
+            By
+            Date</button>
+    </header>
+
+    <main class="px-8 lg:px-16">
+        <!-- cards section  -->
+        <section id="card-container" class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+            <!-- cards -->
+
+        </section>
+
+        <!-- see more button section  -->
+        <section id="see-more-section">
+            <div class="flex justify-center items-center">
+                <button id="btn-see-more" class="btn btn-error text-white text-lg font-medium mt-8">see
+                    more</button>
+            </div>
+        </section>
+
+        <!-- modal section for showing card details  -->
+        <section>
+            <input type="checkbox" id="modal-card-details" class="modal-toggle" />
+            <div class="modal">
+                <div id="modal-details" class="modal-box w-11/12 max-w-5xl">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- loading spinner -->
+        <section id="loader" style="height: 300px;" class="hidden flex justify-center items-center">
+            <button class="btn btn-circle loading"></button>
+        </section>
+
+    </main>
+
+    <footer class="mt-8">
+        <div class="text-center text-zinc-500">
+            <p>Copyright © 2023 - All right reserved by <span class="text-zinc-600">Al Murad Uzzaman</span></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
